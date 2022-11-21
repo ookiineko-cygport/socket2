@@ -221,7 +221,8 @@ fn no_common_flags() {
         target_os = "fuchsia",
         target_os = "linux",
         target_os = "netbsd",
-        target_os = "openbsd"
+        target_os = "openbsd",
+        target_os = "cygwin"
     )
 ))]
 #[test]
@@ -270,7 +271,8 @@ fn set_cloexec() {
         target_os = "fuchsia",
         target_os = "linux",
         target_os = "netbsd",
-        target_os = "openbsd"
+        target_os = "openbsd",
+        target_os = "cygwin"
     )
 ))]
 #[test]
@@ -707,6 +709,7 @@ fn tcp_keepalive() {
             target_os = "fuchsia",
             target_os = "linux",
             target_os = "netbsd",
+            target_os = "cygwin",
             target_vendor = "apple",
             windows,
         )
@@ -721,6 +724,7 @@ fn tcp_keepalive() {
             target_os = "fuchsia",
             target_os = "linux",
             target_os = "netbsd",
+            target_os = "cygwin",
             target_vendor = "apple",
         )
     ))]
@@ -742,6 +746,7 @@ fn tcp_keepalive() {
             target_os = "illumos",
             target_os = "linux",
             target_os = "netbsd",
+            target_os = "cygwin",
             target_vendor = "apple",
         )
     ))]
@@ -760,6 +765,7 @@ fn tcp_keepalive() {
             target_os = "illumos",
             target_os = "linux",
             target_os = "netbsd",
+            target_os = "cygwin",
             target_vendor = "apple",
         )
     ))]
@@ -1112,7 +1118,7 @@ test!(out_of_band_inline, set_out_of_band_inline(true));
 test!(reuse_address, set_reuse_address(true));
 #[cfg(all(
     feature = "all",
-    not(any(windows, target_os = "solaris", target_os = "illumos"))
+    not(any(windows, target_os = "solaris", target_os = "illumos", target_os = "cygwin"))
 ))]
 test!(reuse_port, set_reuse_port(true));
 #[cfg(all(feature = "all", unix, not(target_os = "redox")))]

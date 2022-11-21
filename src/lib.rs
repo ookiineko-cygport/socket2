@@ -370,6 +370,7 @@ impl TcpKeepalive {
             target_os = "fuchsia",
             target_os = "linux",
             target_os = "netbsd",
+            target_os = "cygwin",
             target_vendor = "apple",
             windows,
         )
@@ -383,6 +384,7 @@ impl TcpKeepalive {
                 target_os = "fuchsia",
                 target_os = "linux",
                 target_os = "netbsd",
+                target_os = "cygwin",
                 target_vendor = "apple",
                 windows,
             )
@@ -408,6 +410,7 @@ impl TcpKeepalive {
             target_os = "fuchsia",
             target_os = "linux",
             target_os = "netbsd",
+            target_os = "cygwin",
             target_vendor = "apple",
         )
     ))]
@@ -420,6 +423,7 @@ impl TcpKeepalive {
                 target_os = "fuchsia",
                 target_os = "linux",
                 target_os = "netbsd",
+                target_os = "cygwin",
                 target_vendor = "apple",
             )
         )))

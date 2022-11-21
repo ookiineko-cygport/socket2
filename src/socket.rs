@@ -262,6 +262,7 @@ impl Socket {
             target_os = "linux",
             target_os = "netbsd",
             target_os = "openbsd",
+            target_os = "cygwin",
         ))]
         return self._accept4(libc::SOCK_CLOEXEC);
 
@@ -275,6 +276,7 @@ impl Socket {
             target_os = "linux",
             target_os = "netbsd",
             target_os = "openbsd",
+            target_os = "cygwin",
         )))]
         {
             let (socket, addr) = self.accept_raw()?;
@@ -674,6 +676,7 @@ fn set_common_type(ty: Type) -> Type {
         target_os = "linux",
         target_os = "netbsd",
         target_os = "openbsd",
+        target_os = "cygwin",
     ))]
     let ty = ty._cloexec();
 
@@ -700,6 +703,7 @@ fn set_common_flags(socket: Socket) -> io::Result<Socket> {
             target_os = "linux",
             target_os = "netbsd",
             target_os = "openbsd",
+            target_os = "cygwin",
         ))
     ))]
     socket._set_cloexec(true)?;
@@ -1429,6 +1433,7 @@ impl Socket {
             target_os = "illumos",
             target_os = "linux",
             target_os = "netbsd",
+            target_os = "cygwin",
             target_vendor = "apple",
         )
     ))]
@@ -1444,6 +1449,7 @@ impl Socket {
                 target_os = "illumos",
                 target_os = "linux",
                 target_os = "netbsd",
+                target_os = "cygwin",
                 target_vendor = "apple",
             )
         )))
@@ -1471,6 +1477,7 @@ impl Socket {
             target_os = "illumos",
             target_os = "linux",
             target_os = "netbsd",
+            target_os = "cygwin",
             target_vendor = "apple",
         )
     ))]
@@ -1486,6 +1493,7 @@ impl Socket {
                 target_os = "illumos",
                 target_os = "linux",
                 target_os = "netbsd",
+                target_os = "cygwin",
                 target_vendor = "apple",
             )
         )))

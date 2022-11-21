@@ -127,6 +127,7 @@ pub(crate) use libc::{
         target_os = "illumos",
         target_os = "linux",
         target_os = "netbsd",
+        target_os = "cygwin",
         target_vendor = "apple",
     )
 ))]
@@ -195,6 +196,7 @@ type IovLen = usize;
     target_os = "illumos",
     target_os = "netbsd",
     target_os = "openbsd",
+    target_os = "cygwin",
     target_os = "solaris",
     target_vendor = "apple",
 ))]
@@ -259,7 +261,8 @@ impl Type {
             target_os = "illumos",
             target_os = "linux",
             target_os = "netbsd",
-            target_os = "openbsd"
+            target_os = "openbsd",
+            target_os = "cygwin"
         )
     ))]
     #[cfg_attr(
@@ -274,7 +277,8 @@ impl Type {
                 target_os = "illumos",
                 target_os = "linux",
                 target_os = "netbsd",
-                target_os = "openbsd"
+                target_os = "openbsd",
+                target_os = "cygwin"
             )
         )))
     )]
@@ -293,7 +297,8 @@ impl Type {
             target_os = "illumos",
             target_os = "linux",
             target_os = "netbsd",
-            target_os = "openbsd"
+            target_os = "openbsd",
+            target_os = "cygwin"
         )
     ))]
     #[cfg_attr(
@@ -308,7 +313,8 @@ impl Type {
                 target_os = "illumos",
                 target_os = "linux",
                 target_os = "netbsd",
-                target_os = "openbsd"
+                target_os = "openbsd",
+                target_os = "cygwin"
             )
         )))
     )]
@@ -324,7 +330,8 @@ impl Type {
         target_os = "illumos",
         target_os = "linux",
         target_os = "netbsd",
-        target_os = "openbsd"
+        target_os = "openbsd",
+        target_os = "cygwin"
     ))]
     pub(crate) const fn _cloexec(self) -> Type {
         Type(self.0 | libc::SOCK_CLOEXEC)
@@ -889,6 +896,7 @@ pub(crate) fn set_tcp_keepalive(fd: Socket, keepalive: &TcpKeepalive) -> io::Res
         target_os = "illumos",
         target_os = "linux",
         target_os = "netbsd",
+        target_os = "cygwin",
         target_vendor = "apple",
     ))]
     {
@@ -1012,7 +1020,8 @@ impl crate::Socket {
             target_os = "illumos",
             target_os = "linux",
             target_os = "netbsd",
-            target_os = "openbsd"
+            target_os = "openbsd",
+            target_os = "cygwin"
         )
     ))]
     #[cfg_attr(
@@ -1027,7 +1036,8 @@ impl crate::Socket {
                 target_os = "illumos",
                 target_os = "linux",
                 target_os = "netbsd",
-                target_os = "openbsd"
+                target_os = "openbsd",
+                target_os = "cygwin"
             )
         )))
     )]
@@ -1043,7 +1053,8 @@ impl crate::Socket {
         target_os = "illumos",
         target_os = "linux",
         target_os = "netbsd",
-        target_os = "openbsd"
+        target_os = "openbsd",
+        target_os = "cygwin"
     ))]
     pub(crate) fn _accept4(&self, flags: c_int) -> io::Result<(crate::Socket, SockAddr)> {
         // Safety: `accept4` initialises the `SockAddr` for us.
@@ -1414,14 +1425,14 @@ impl crate::Socket {
     /// [`set_reuse_port`]: crate::Socket::set_reuse_port
     #[cfg(all(
         feature = "all",
-        not(any(target_os = "solaris", target_os = "illumos"))
+        not(any(target_os = "solaris", target_os = "illumos", target_os = "cygwin"))
     ))]
     #[cfg_attr(
         docsrs,
         doc(cfg(all(
             feature = "all",
             unix,
-            not(any(target_os = "solaris", target_os = "illumos"))
+            not(any(target_os = "solaris", target_os = "illumos", target_os = "cygwin"))
         )))
     )]
     pub fn reuse_port(&self) -> io::Result<bool> {
@@ -1438,14 +1449,14 @@ impl crate::Socket {
     /// there's a socket already listening on this port.
     #[cfg(all(
         feature = "all",
-        not(any(target_os = "solaris", target_os = "illumos"))
+        not(any(target_os = "solaris", target_os = "illumos", target_os = "cygwin"))
     ))]
     #[cfg_attr(
         docsrs,
         doc(cfg(all(
             feature = "all",
             unix,
-            not(any(target_os = "solaris", target_os = "illumos"))
+            not(any(target_os = "solaris", target_os = "illumos", target_os = "cygwin"))
         )))
     )]
     pub fn set_reuse_port(&self, reuse: bool) -> io::Result<()> {
